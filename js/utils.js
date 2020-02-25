@@ -1,3 +1,5 @@
+import baselineRatio from "./baseline-ratio";
+
 export const is_chrome =
   navigator.userAgent.toLowerCase().indexOf("chrome") > -1;
 
@@ -29,8 +31,48 @@ export const optimalStrokeWidthPos = function(strokeWidth, posY) {
 };
 
 export class Point {
-    constructor(x, y) {
-        this.x = x;
-        this.y = y;
-    }
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
+  }
 }
+
+export const getElementStyles = function(element) {
+  // lineHeight, height, ratio, fontFamily, fontSize, fontStyle
+
+  var baselinePositionRatio = baselineRatio(element);
+  var lineHeight = parseFloat(
+    window.getComputedStyle(element, null).getPropertyValue("line-height")
+  );
+  var fontFamily = window
+    .getComputedStyle(element, null)
+    .getPropertyValue("font-family");
+  var fontSize = window
+    .getComputedStyle(element, null)
+    .getPropertyValue("font-size");
+  var fontStyle = window
+    .getComputedStyle(element, null)
+    .getPropertyValue("font-style");
+  var width = element.getBoundingClientRect().width;
+  var height = element.getBoundingClientRect().height;
+  var parentWidth = element.parentNode.getBoundingClientRect().width;
+
+  var offsetLeft = element.offsetLeft;
+  var parentOffsetLeft = element.parentNode.offsetLeft;
+  var canvasLeft = parentOffsetLeft - offsetLeft;
+  var textIndent = offsetLeft - parentOffsetLeft;
+
+  // canvas.style.left= canvasLeft + 'px';
+  return {
+    lineHeight: lineHeight,
+    width: width,
+    height: height,
+    parentWidth: parentWidth,
+    fontFamily: fontFamily,
+    fontSize: fontSize,
+    fontStyle: fontStyle,
+    baselinePositionRatio: baselinePositionRatio,
+    canvasLeft: canvasLeft,
+    textIndent: textIndent
+  };
+};
