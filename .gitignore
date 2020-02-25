@@ -2,5 +2,6 @@
 **/.sass-cache
 **/.sass-cache/*
 node_modules
+.cache
 dist
 yarn-error.log

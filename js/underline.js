@@ -1,9 +1,9 @@
-import baselineRatio from "./baseline-ratio";
 import SingleUnderline from "./single-underline";
 import MultipleUnderline from "./multiple-underline";
 import { getElementStyles } from "./utils";
 
 var myUnderlines = [];
+
 const underline = (
   querySelector = ".underline",
   underlineStyles = {
@@ -13,6 +13,7 @@ const underline = (
     "text-underline-width": "auto" // could be auto or px or ratio
   }
 ) => {
+  const underlines = []
   var underlineElements = document.querySelectorAll(querySelector);
   for (const element of underlineElements) {
     // single line or multiple line?
@@ -25,11 +26,13 @@ const underline = (
       // single line
       var myUnderline = new SingleUnderline(element, underlineStyles);
     }
-    myUnderlines.push(myUnderline);
+    underlines.push(myUnderline);
   }
+  return underlines
 };
+
 window.onload = () => {
-  underline();
+  myUnderlines = underline();
 };
 
 function animate(underlines) {
@@ -48,4 +51,6 @@ function animate(underlines) {
 
   requestAnimationFrame(() => animate(underlines));
 }
-animate(myUnderlines);
+// animate(myUnderlines);
+
+export default underline;
