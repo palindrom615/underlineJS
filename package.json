@@ -1,5 +1,5 @@
 {
-  "name": "underlineJS",
+  "name": "@palindrom615/underlinejs",
   "version": "1.0.0",
   "description": "A javascript library that sets out to do one simple job: draw and animate the most perfect and playful text underline",
   "main": "js/underline.js",
