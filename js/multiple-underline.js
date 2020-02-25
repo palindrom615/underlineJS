@@ -1,4 +1,3 @@
-
 function MultipleUnderline(element, underlineStyles, elementStyles) {
     //ctor
     this.element = element;
@@ -250,4 +249,4 @@ MultipleUnderline.prototype.draw = function(){
     }
 };
 
-
+export default MultipleUnderline

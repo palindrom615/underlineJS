@@ -1,0 +1,17 @@
+{
+  "name": "underlineJS",
+  "version": "1.0.0",
+  "description": "A javascript library that sets out to do one simple job: draw and animate the most perfect and playful text underline",
+  "main": "js/underline.js",
+  "repository": "https://github.com/palindrom615/underlineJS",
+  "author": "Wenting Zhang",
+  "license": "MIT",
+  "devDependencies": {
+    "webpack": "^4.41.6",
+    "webpack-cli": "^3.3.11"
+  },
+  "scripts": {
+    "dev": "webpack js/underline.js --mode=development",
+    "prod": "webpack js/underline.js --mode=production"
+  }
+}
