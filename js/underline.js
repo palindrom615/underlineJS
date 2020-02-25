@@ -97,22 +97,23 @@ window.onload = function() {
 };
 
 function animate() {
-  for (var i = 0; i < myUnderlines.length; i++) {
-    var myUnderline = myUnderlines[i];
-
-    // clear
-    myUnderline.clear();
-
-    // update
-    myUnderline.update();
-
-    // draw stuff
-    myUnderline.draw();
+    for (var i = 0; i < myUnderlines.length; i++) {
+      var myUnderline = myUnderlines[i];
+  
+      // clear
+      myUnderline.clear();
+  
+      // update
+      myUnderline.update();
+  
+      // draw stuff
+      myUnderline.draw();
+    }
+  
+    // request new frame
+    requestAnimFrame(function() {
+      animate();
+    });
   }
-
-  // request new frame
-  requestAnimFrame(function() {
-    animate();
-  });
-}
-animate();
+  animate();
+  

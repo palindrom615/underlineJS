@@ -1,3 +1,5 @@
+import { Point } from "./utils";
+
 //audio play multiple channels at the same time: http://www.storiesinflight.com/html5/audio.html
 var channel_max = 10; // number of channels
 var audiochannels = new Array();
@@ -23,8 +25,6 @@ function play_multi_sound(s) {
     }
   }
 }
-
-var is_chrome = navigator.userAgent.toLowerCase().indexOf("chrome") > -1;
 
 var circleCenter = function(startPoint, thirdPoint, endPoint) {
   var dy1 = thirdPoint.y - startPoint.y;
@@ -54,11 +54,6 @@ var circleCenter = function(startPoint, thirdPoint, endPoint) {
 
 var dist = function(x, y, x0, y0) {
   return Math.sqrt((x -= x0) * x + (y -= y0) * y);
-};
-
-export const Point = function(x, y) {
-  this.x = x;
-  this.y = y;
 };
 
 var intersects = function(a, b, c, d, p, q, r, s) {
